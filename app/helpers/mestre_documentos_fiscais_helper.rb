@@ -1,0 +1,2 @@
+module MestreDocumentosFiscaisHelper
+end

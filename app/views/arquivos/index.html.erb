@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Últimos arquivos carregados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome Arquivo</th>
+      <th>Série</th>
+      <th>Referência</th>
+      <th>Status</th>
+      <th>Tipo</th>
+      <th>Volume</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @arquivos.each do |arquivo| %>
+      <tr>
+        <td><%= arquivo.nome %></td>
+        <td><%= arquivo.serie %></td>
+        <td><%= arquivo.referencia %></td>
+        <td><%= arquivo.status %></td>
+        <td><%= arquivo.tipo %></td>
+        <td><%= arquivo.volume %></td>
+        <td><%= link_to 'Destroy', arquivo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3><%= link_to 'Importar Arquivo', new_arquivo_path %></h3>

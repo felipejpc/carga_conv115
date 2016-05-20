@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  serie: MyString
+  referencia: MyString
+  status: MyString
+  tipo: MyString
+  volume: MyString
+
+two:
+  nome: MyString
+  serie: MyString
+  referencia: MyString
+  status: MyString
+  tipo: MyString
+  volume: MyString

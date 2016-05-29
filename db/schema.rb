@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519220614) do
+ActiveRecord::Schema.define(version: 20160520213613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20160519220614) do
     t.decimal  "icms",                                              precision: 14, scale: 2
     t.decimal  "op_isentas_nao_tributadas",                         precision: 14, scale: 2
     t.decimal  "outros",                                            precision: 14, scale: 2
-    t.string   "nome_arq_mestre",                        limit: 13
+    t.string   "nome_arq_mestre",                        limit: 15
     t.string   "status_retificacao",                     limit: 1
     t.string   "cod_autent_dig_arq_mestre",              limit: 32
     t.string   "qtd_registros_arq_item",                 limit: 9
@@ -68,14 +68,14 @@ ActiveRecord::Schema.define(version: 20160519220614) do
     t.decimal  "icms_itens",                                        precision: 14, scale: 2
     t.decimal  "op_isentas_nao_tributadas_itens",                   precision: 14, scale: 2
     t.decimal  "outros_valores_itens",                              precision: 14, scale: 2
-    t.string   "nome_arq_item",                          limit: 13
+    t.string   "nome_arq_item",                          limit: 15
     t.string   "status_retificacao_item",                limit: 1
     t.string   "cod_autent_dig_arq_item",                limit: 32
     t.string   "qtd_registros_arq_destinatario",         limit: 7
-    t.string   "nome_arq_destinatario",                  limit: 13
+    t.string   "nome_arq_destinatario",                  limit: 15
     t.string   "status_retificacao_dest",                limit: 1
     t.string   "cod_autent_dig_arq_dest",                limit: 32
-    t.string   "brancos",                                limit: 17
+    t.string   "brancos",                                limit: 42
     t.string   "cod_autent_dig_registro",                limit: 32
     t.datetime "created_at",                                                                 null: false
     t.datetime "updated_at",                                                                 null: false

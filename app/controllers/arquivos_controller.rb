@@ -20,14 +20,14 @@ class ArquivosController < ApplicationController
     @arquivo.status = arquivo[9]
     @arquivo.tipo = arquivo[10]
     @arquivo.volume = arquivo[12..14]
-    Arquivo.transaction do
-      ArquivoReaderService.new.processa_arquivo(@arquivo)
-    end
-    if @arquivo.save
-      redirect_to arquivos_url, notice: 'O arquivo foi carregado com sucesso!'
-    else
-      render :new
-    end
+# TODO corrigir erro no ex Errno::ETXTBSY
+    @arquivo.save!
+      if ArquivoReaderService.new.processa_arquivo(@arquivo)
+        redirect_to arquivos_url, notice: 'O arquivo foi carregado com sucesso!'
+      else
+        render :new
+      end
+
   end
 
   def destroy

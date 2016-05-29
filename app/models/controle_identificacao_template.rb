@@ -23,7 +23,7 @@ class ControleIdentificacaoTemplate < BinData::Record
   string :icms,                                  read_length: 14 # 1..18
   string :op_isentas_nao_tributadas,             read_length: 14 # 1..18
   string :outros,                                read_length: 14 # 1..18
-  string :nome_arq_mestre,                        read_length: 13 # 1..18
+  string :nome_arq_mestre,                        read_length: 15 # 1..18
   string :status_retificacao,                     read_length: 1 # 1..18
   string :cod_autent_dig_arq_mestre,              read_length: 32 # 1..18
   string :qtd_registros_arq_item,                 read_length: 9 # 1..18
@@ -39,20 +39,21 @@ class ControleIdentificacaoTemplate < BinData::Record
   string :op_isentas_nao_tributadas_itens,       read_length: 14 # 1..18
   string :icms_itens,                            read_length: 14 # 1..18
   string :outros_valores_itens,                  read_length: 14 # 1..18
-  string :nome_arq_item,                          read_length: 13 # 1..18
+  string :nome_arq_item,                          read_length: 15 # 1..18
   string :status_retificacao_item,                read_length: 1 # 1..18
   string :cod_autent_dig_arq_item,                read_length: 32 # 1..18
   string :qtd_registros_arq_destinatario,         read_length: 7 # 1..18
-  string :nome_arq_destinatario,                  read_length: 13 # 1..18
+  string :nome_arq_destinatario,                  read_length: 15 # 1..18
   string :status_retificacao_dest,                read_length: 1 # 1..18
   string :cod_autent_dig_arq_dest,                read_length: 32 # 1..18
-  string :brancos,                                read_length: 17 # 1..18
+  string :brancos,                                read_length: 42 # 1..18
   string :cod_autent_dig_registro,                read_length: 32 # 1..18
 
   def valida(arquivo)
-    valido? = true
-    File.open(arquivo).each do |linha|
-      valido? = false if linha.length != 766
+    valido = true
+    File.open(arquivo.arquivo.path).each do |linha|
+      valido = false if linha.length != 797
     end
-    valido?
+    valido
+  end
 end

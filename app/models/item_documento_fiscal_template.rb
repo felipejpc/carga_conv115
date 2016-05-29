@@ -31,9 +31,10 @@ class ItemDocumentoFiscalTemplate < BinData::Record
   string :cod_autent_dig_registro,          read_length: 32 # 1..14
 
   def valida(arquivo)
-    valido? = true
+    valido = true
     File.open(arquivo).each do |linha|
-      valido? = false if linha.length != 254
+      valido = false if linha.length != 254
     end
-    valido?
+    valido
+  end
 end
